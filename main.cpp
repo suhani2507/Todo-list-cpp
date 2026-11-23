@@ -49,6 +49,7 @@ int main()
     "2. View tasks\n"
     "3. Delete task\n"
     "4. Mark tasks as done\n"
+    "5. Edit tasks\n"
     "0. Exit\n"
     "Enter your choice: ";
     cin >> choice;
@@ -103,6 +104,20 @@ int main()
         else{
             tasks[num - 1].done = true;
             cout << "Task is marked done! \n";
+        }
+    }
+    else if(choice == 5){
+        int num;
+        cout << "Enter the task number: ";
+        cin >> num;
+        if(num < 1 || num > tasks.size()){
+            cout << "Invalid task number \n";
+        }
+        else{
+            cin.ignore();
+            cout << "Enter the new task: ";
+            getline(cin, tasks[num - 1].title);
+            cout << "Task Updated!\n";
         }
     }
     saveTasks(tasks);
